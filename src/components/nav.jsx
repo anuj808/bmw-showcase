@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import logo from '../assets/logo.png';
+import drift from '../assets/gallery/drift_transparent.gif';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ function Navbar() {
       </div>
 
       <div className="drift-gif-container">
-  <img src="\src\assets\gallery\drift_transparent.gif" alt="Drifting Car" className="drift-gif" />
+  <img src={drift} alt="Drifting Car" className="drift-gif" />
 </div>
     </nav>
   );
