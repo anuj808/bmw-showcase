@@ -1,35 +1,39 @@
-import { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
-import Navbar from './components/nav'
-import Hero from './components/Hero'
-import SpecsSection from './components/SpecsSection'
+import { useState } from 'react';
+import Navbar from './components/nav';
+import Hero from './components/Hero';
+import SpecsSection from './components/SpecsSection';
 import GallerySection from './components/GallerySection';
 import ModelComparison from './components/ModelComparison';
 import FinalSection from './components/FinalSection';
+import SoundSimulator from './components/SoundSimulator';
 
-import './App.css'
+import './App.css';
 
 function App() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
+  const [showSoundPanel, setShowSoundPanel] = useState(false);
+
+  const toggleSoundPanel = () => {
+    setShowSoundPanel(prev => !prev);
+  };
 
   return (
-  <>
-  <Navbar/>
-  <Hero/>
-  <SpecsSection/>
-  <GallerySection/>
-  <ModelComparison/>
-  <FinalSection/>
-  
-  </>
-  )
+    <>
+      <Navbar />
+      <Hero />
+      <SpecsSection />
+      <GallerySection />
+      <ModelComparison />
+      <FinalSection />
+
+      {/* 🎵 Floating Toggle Button */}
+      <div className="side-slider-button" onClick={toggleSoundPanel}>🎵</div>
+
+      {/* 🔊 Sliding Panel */}
+      <div className={`sound-panel ${showSoundPanel ? 'open' : ''}`}>
+        <SoundSimulator />
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;

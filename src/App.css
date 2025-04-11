@@ -1,11 +1,94 @@
+/* Reset and base styles */
 *,
-        *::after,
-        *::before {
-          padding: 0;
-          margin: 0;
-          box-sizing: border-box;
-        }
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-body{
+body {
   min-height: 100vh;
+  background: #0e0e0e;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+}
+
+/* 🎵 Toggle Button (square) */
+.side-slider-button {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: #222;
+  color: #00d4ff;
+  border: 2px solid #00d4ff;
+  border-radius: 10px 0 0 10px;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.side-slider-button:hover {
+  background: #00d4ff;
+  color: #000;
+  border-color: #00d4ff;
+}
+
+/* 🔊 Sliding Panel */
+.sound-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: #1c1c1c;
+  color: white;
+  padding: 2rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+  overflow-y: auto;
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.5);
+}
+.sound-panel.open {
+  right: 0;
+}
+
+/* Inside Sound Panel */
+.sound-controls h2 {
+  color: #00d4ff;
+  margin-bottom: 1rem;
+}
+
+.sound-controls button {
+  background: #00d4ff;
+  color: #000;
+  border: none;
+  padding: 10px 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: background 0.2s;
+}
+.sound-controls button:hover {
+  background: #00a8cc;
+}
+
+.throttle-slider {
+  margin-top: 1rem;
+}
+.throttle-slider label {
+  display: block;
+  margin-bottom: 8px;
+  color: #aaa;
+}
+input[type="range"] {
+  width: 100%;
 }
